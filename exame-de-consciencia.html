@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exame de Consciência — Preparação para a Confissão</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#150f22;
+    --bg-panel:#1e1830;
+    --bg-panel-alt:#271f3d;
+    --gold:#c9a227;
+    --gold-bright:#e4c25a;
+    --burgundy:#7a2331;
+    --burgundy-bright:#a5324a;
+    --parchment:#efe7d8;
+    --parchment-dim:#cfc6b3;
+    --lilac:#9c8fc0;
+    --divider:rgba(201,162,39,0.25);
+    --shadow:rgba(0,0,0,0.45);
+  }
+
+  *{box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse at top, #201a33 0%, var(--bg-deep) 55%),
+      var(--bg-deep);
+    color:var(--parchment);
+    font-family:'EB Garamond', serif;
+    font-size:18px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,.display{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    letter-spacing:0.01em;
+  }
+
+  .eyebrow{
+    font-family:'EB Garamond', serif;
+    font-variant:small-caps;
+    letter-spacing:0.14em;
+    color:var(--gold);
+    font-size:0.85rem;
+    display:block;
+    margin-bottom:0.35rem;
+  }
+
+  a{color:var(--gold-bright);}
+
+  /* ---------- progress candle bar ---------- */
+  .progress-bar{
+    position:sticky;
+    top:0;
+    z-index:50;
+    display:flex;
+    align-items:center;
+    gap:0.9rem;
+    padding:0.6rem 1.4rem;
+    background:rgba(21,15,34,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--divider);
+  }
+  .candle{
+    position:relative;
+    width:14px;
+    height:34px;
+    flex-shrink:0;
+  }
+  .candle .wax-bg{
+    position:absolute;
+    bottom:0; left:0; right:0;
+    height:100%;
+    background:#3a3252;
+    border-radius:3px;
+    overflow:hidden;
+    border:1px solid rgba(201,162,39,0.35);
+  }
+  .candle .wax-fill{
+    position:absolute;
+    bottom:0; left:0; right:0;
+    height:0%;
+    background:linear-gradient(180deg, var(--gold-bright), var(--gold) 70%, #8a6c15);
+    transition:height 0.5s ease;
+  }
+  .candle .flame{
+    position:absolute;
+    top:-13px;
+    left:50%;
+    transform:translateX(-50%);
+    width:10px;
+    height:16px;
+    background:radial-gradient(circle at 50% 70%, #fff6d0 0%, var(--gold-bright) 40%, var(--burgundy-bright) 90%);
+    border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation:flicker 2.6s infinite ease-in-out;
+    filter:drop-shadow(0 0 6px rgba(228,194,90,0.7));
+  }
+  @keyframes flicker{
+    0%,100%{transform:translateX(-50%) scale(1) rotate(0deg);}
+    25%{transform:translateX(-52%) scale(1.05,0.96) rotate(-2deg);}
+    50%{transform:translateX(-48%) scale(0.95,1.05) rotate(2deg);}
+    75%{transform:translateX(-51%) scale(1.02,0.98) rotate(-1deg);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .candle .flame{animation:none;}
+    html{scroll-behavior:auto;}
+  }
+  .progress-text{
+    font-variant:small-caps;
+    letter-spacing:0.08em;
+    color:var(--parchment-dim);
+    font-size:0.92rem;
+    white-space:nowrap;
+  }
+  .progress-text strong{color:var(--gold-bright); font-weight:600;}
+  .progress-track{
+    flex:1;
+    height:5px;
+    background:#332b4a;
+    border-radius:3px;
+    overflow:hidden;
+  }
+  .progress-track-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg, var(--burgundy), var(--gold));
+    transition:width 0.5s ease;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    max-width:760px;
+    margin:0 auto;
+    padding:4.5rem 1.6rem 3rem;
+    text-align:center;
+  }
+  .hero-flame-wrap{
+    display:flex;
+    justify-content:center;
+    margin-bottom:1.6rem;
+  }
+  .hero-candle{width:20px; height:60px; position:relative;}
+  .hero-candle .body{
+    position:absolute; bottom:0; left:0; right:0; height:100%;
+    background:linear-gradient(180deg,#f2e9d3,#d8c9a0);
+    border-radius:3px 3px 1px 1px;
+    box-shadow:inset -3px 0 6px rgba(0,0,0,0.25);
+  }
+  .hero-candle .wick{
+    position:absolute; top:-6px; left:50%; transform:translateX(-50%);
+    width:2px; height:8px; background:#3a2f22;
+  }
+  .hero-candle .flame{
+    position:absolute; top:-24px; left:50%; transform:translateX(-50%);
+    width:14px; height:22px;
+    background:radial-gradient(circle at 50% 68%, #fff8dd 0%, var(--gold-bright) 45%, var(--burgundy-bright) 92%);
+    border-radius:50% 50% 50% 50% / 62% 62% 38% 38%;
+    animation:flicker 2.8s infinite ease-in-out;
+    filter:drop-shadow(0 0 14px rgba(228,194,90,0.55));
+  }
+  h1.title{
+    font-size:clamp(2.4rem, 6vw, 3.6rem);
+    color:var(--parchment);
+    margin:0 0 0.4rem;
+    font-weight:500;
+  }
+  .subtitle{
+    font-family:'EB Garamond', serif;
+    font-style:italic;
+    color:var(--lilac);
+    font-size:1.15rem;
+    margin:0 0 2.2rem;
+  }
+  .intro{
+    text-align:left;
+    color:var(--parchment-dim);
+    font-size:1.08rem;
+  }
+  .intro::first-letter{
+    font-family:'Cormorant Garamond', serif;
+    font-size:3.6rem;
+    float:left;
+    line-height:0.8;
+    padding:0.08em 0.12em 0 0;
+    color:var(--gold-bright);
+    font-weight:600;
+  }
+  .btn{
+    display:inline-block;
+    margin-top:1.8rem;
+    padding:0.8rem 2rem;
+    background:linear-gradient(180deg, var(--gold-bright), var(--gold));
+    color:#241c0a;
+    font-family:'EB Garamond', serif;
+    font-variant:small-caps;
+    letter-spacing:0.08em;
+    font-weight:600;
+    font-size:1rem;
+    border:none;
+    border-radius:2px;
+    cursor:pointer;
+    box-shadow:0 4px 18px rgba(201,162,39,0.25);
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn:hover{transform:translateY(-1px); box-shadow:0 6px 22px rgba(201,162,39,0.4);}
+  .btn:focus-visible{outline:2px solid var(--gold-bright); outline-offset:3px;}
+  .btn.secondary{
+    background:transparent;
+    color:var(--gold-bright);
+    border:1px solid var(--gold);
+    box-shadow:none;
+  }
+  .btn.small{padding:0.5rem 1.1rem; font-size:0.88rem; margin-top:0;}
+
+  /* ---------- sections ---------- */
+  .section-wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 1.6rem;
+  }
+  .divider-orn{
+    text-align:center;
+    color:var(--gold);
+    opacity:0.6;
+    margin:2.6rem 0;
+    letter-spacing:0.6em;
+    font-size:0.8rem;
+  }
+
+  .commandment{
+    background:var(--bg-panel);
+    border:1px solid var(--divider);
+    border-radius:6px;
+    margin-bottom:1.1rem;
+    overflow:hidden;
+  }
+  .commandment-head{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    padding:1.1rem 1.4rem;
+    cursor:pointer;
+    user-select:none;
+  }
+  .commandment-head:hover{background:var(--bg-panel-alt);}
+  .numeral{
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.9rem;
+    color:var(--gold-bright);
+    min-width:2.4rem;
+    text-align:center;
+  }
+  .commandment-title{
+    flex:1;
+  }
+  .commandment-title h3{
+    margin:0;
+    font-size:1.28rem;
+    color:var(--parchment);
+    font-weight:500;
+  }
+  .commandment-title p{
+    margin:0.15rem 0 0;
+    color:var(--lilac);
+    font-size:0.92rem;
+    font-style:italic;
+  }
+  .chev{
+    color:var(--gold);
+    font-size:1.1rem;
+    transition:transform 0.25s ease;
+    flex-shrink:0;
+  }
+  .commandment.open .chev{transform:rotate(90deg);}
+  .badge-count{
+    font-size:0.78rem;
+    font-variant:small-caps;
+    color:var(--burgundy-bright);
+    background:rgba(122,35,49,0.18);
+    border:1px solid rgba(165,50,74,0.4);
+    border-radius:10px;
+    padding:0.15rem 0.6rem;
+    white-space:nowrap;
+  }
+  .commandment-body{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.35s ease;
+    border-top:1px solid transparent;
+  }
+  .commandment.open .commandment-body{
+    border-top:1px solid var(--divider);
+  }
+  .commandment-body-inner{
+    padding:1.1rem 1.4rem 1.4rem;
+  }
+  .q-list{list-style:none; margin:0; padding:0;}
+  .q-item{
+    display:flex;
+    align-items:flex-start;
+    gap:0.7rem;
+    padding:0.55rem 0;
+    border-bottom:1px dashed rgba(156,143,192,0.18);
+    font-size:0.98rem;
+    color:var(--parchment-dim);
+  }
+  .q-item:last-child{border-bottom:none;}
+  .q-item input[type="checkbox"]{
+    appearance:none;
+    -webkit-appearance:none;
+    width:19px; height:19px;
+    min-width:19px;
+    border:1.5px solid var(--gold);
+    border-radius:3px;
+    margin-top:0.15rem;
+    cursor:pointer;
+    position:relative;
+    background:rgba(201,162,39,0.05);
+  }
+  .q-item input[type="checkbox"]:checked{
+    background:var(--burgundy);
+    border-color:var(--burgundy-bright);
+  }
+  .q-item input[type="checkbox"]:checked::after{
+    content:"✕";
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--parchment);
+    font-size:0.72rem;
+  }
+  .q-item input[type="checkbox"]:focus-visible{outline:2px solid var(--gold-bright); outline-offset:2px;}
+  .q-item label{cursor:pointer;}
+  .q-item.checked label{color:var(--parchment);}
+
+  /* ---------- simple sections (pecados capitais, preceitos) ---------- */
+  .simple-card{
+    background:var(--bg-panel);
+    border:1px solid var(--divider);
+    border-radius:6px;
+    padding:1.1rem 1.4rem;
+    margin-bottom:0.8rem;
+  }
+  .simple-card h4{
+    margin:0 0 0.3rem;
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.25rem;
+    color:var(--gold-bright);
+    font-weight:600;
+  }
+  .simple-card p.note{
+    margin:0 0 0.6rem;
+    color:var(--lilac);
+    font-size:0.9rem;
+    font-style:italic;
+  }
+
+  h2.section-title{
+    font-size:1.9rem;
+    color:var(--parchment);
+    text-align:center;
+    margin:0 0 0.3rem;
+  }
+  .section-lead{
+    text-align:center;
+    color:var(--parchment-dim);
+    max-width:560px;
+    margin:0 auto 2rem;
+    font-size:1rem;
+  }
+
+  /* ---------- summary ---------- */
+  #resumo{
+    background:var(--bg-panel);
+    border:1px solid var(--gold);
+    border-radius:8px;
+    padding:1.8rem;
+    margin-top:1rem;
+  }
+  #resumo-empty{color:var(--lilac); font-style:italic; text-align:center; padding:1rem 0;}
+  .resumo-group{margin-bottom:1.2rem;}
+  .resumo-group h4{
+    margin:0 0 0.4rem;
+    color:var(--gold-bright);
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.15rem;
+    border-bottom:1px solid var(--divider);
+    padding-bottom:0.3rem;
+  }
+  .resumo-group ul{margin:0; padding-left:1.2rem; color:var(--parchment-dim);}
+  .resumo-group li{margin-bottom:0.25rem;}
+  .resumo-actions{
+    display:flex;
+    gap:0.8rem;
+    justify-content:center;
+    margin-top:1.4rem;
+    flex-wrap:wrap;
+  }
+
+  /* ---------- confissao steps ---------- */
+  .steps{
+    counter-reset:step;
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  .steps li{
+    counter-increment:step;
+    position:relative;
+    padding:0.4rem 0 1.3rem 3rem;
+    border-left:1px solid var(--divider);
+    margin-left:0.9rem;
+    color:var(--parchment-dim);
+  }
+  .steps li:last-child{border-left:1px solid transparent;}
+  .steps li::before{
+    content:counter(step);
+    position:absolute;
+    left:-0.9rem;
+    top:0;
+    width:1.8rem;
+    height:1.8rem;
+    background:var(--bg-deep);
+    border:1.5px solid var(--gold);
+    color:var(--gold-bright);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Cormorant Garamond', serif;
+    font-size:1rem;
+  }
+  .steps strong{color:var(--parchment);}
+
+  .prayer-box{
+    background:linear-gradient(180deg, var(--bg-panel-alt), var(--bg-panel));
+    border:1px solid var(--gold);
+    border-radius:8px;
+    padding:1.8rem;
+    margin-top:1.6rem;
+    position:relative;
+  }
+  .prayer-box::before{
+    content:"";
+    position:absolute;
+    inset:6px;
+    border:1px solid rgba(201,162,39,0.3);
+    border-radius:5px;
+    pointer-events:none;
+  }
+  .prayer-box p{
+    font-size:1.08rem;
+    color:var(--parchment);
+    margin:0;
+  }
+  .prayer-box p::first-letter{
+    font-family:'Cormorant Garamond', serif;
+    font-size:2.6rem;
+    float:left;
+    line-height:0.7;
+    padding:0.06em 0.1em 0 0;
+    color:var(--gold-bright);
+    font-weight:600;
+  }
+
+  footer{
+    text-align:center;
+    color:var(--lilac);
+    font-size:0.85rem;
+    padding:3rem 1.6rem 2.4rem;
+    opacity:0.8;
+  }
+
+  /* ---------- print ---------- */
+  @media print{
+    .progress-bar, .hero-flame-wrap, .btn, .divider-orn, footer, #accordion, #capitais, #preceitos, header.hero .btn{display:none !important;}
+    body{background:#fff; color:#000;}
+    #resumo{border:1px solid #000; box-shadow:none;}
+    .resumo-group h4{color:#000;}
+    .resumo-group ul{color:#000;}
+  }
+
+  @media (max-width:520px){
+    body{font-size:16.5px;}
+    .hero{padding:3rem 1.1rem 2rem;}
+    .progress-text{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar">
+  <div class="candle">
+    <div class="wax-bg"><div class="wax-fill" id="waxFill"></div></div>
+    <div class="flame"></div>
+  </div>
+  <div class="progress-track"><div class="progress-track-fill" id="trackFill"></div></div>
+  <div class="progress-text">Refletido: <strong id="progressPct">0%</strong></div>
+</div>
+
+<header class="hero">
+  <div class="hero-flame-wrap">
+    <div class="hero-candle">
+      <div class="wick"></div>
+      <div class="flame"></div>
+      <div class="body"></div>
+    </div>
+  </div>
+  <span class="eyebrow">Sacramento da Reconciliação</span>
+  <h1 class="title">Exame de Consciência</h1>
+  <p class="subtitle">Uma luz antes da confissão, um passo de volta para casa.</p>
+  <p class="intro">Antes de te aproximares do confessionário, reserva um tempo de silêncio. Percorre cada mandamento com calma, faz as perguntas a ti mesmo diante de Deus, e assinala apenas aquilo que reconheces em tua vida — não para te condenar, mas para te libertar. No final, terás um resumo pronto para levar contigo à confissão.</p>
+  <a href="#acordeao" class="btn">Iniciar o Exame ↓</a>
+</header>
+
+<div class="section-wrap">
+  <div class="divider-orn">✝ ❧ ✝</div>
+</div>
+
+<div class="section-wrap" id="acordeao">
+  <h2 class="section-title">Os Dez Mandamentos</h2>
+  <p class="section-lead">A Lei de Deus, resumida no amor a Ele e ao próximo, é o primeiro espelho da nossa consciência.</p>
+  <div id="commandmentsContainer"></div>
+</div>
+
+<div class="section-wrap">
+  <div class="divider-orn">✝ ❧ ✝</div>
+</div>
+
+<div class="section-wrap" id="capitais">
+  <h2 class="section-title">Os Sete Pecados Capitais</h2>
+  <p class="section-lead">Raízes de onde nascem muitos outros pecados — vale a pena olhar para elas com honestidade.</p>
+  <div id="capitaisContainer"></div>
+</div>
+
+<div class="section-wrap">
+  <div class="divider-orn">✝ ❧ ✝</div>
+</div>
+
+<div class="section-wrap" id="preceitos">
+  <h2 class="section-title">Os Preceitos da Igreja</h2>
+  <p class="section-lead">Compromissos mínimos de todo fiel católico com a vida da Igreja.</p>
+  <div id="preceitosContainer"></div>
+</div>
+
+<div class="section-wrap">
+  <div class="divider-orn">✝ ❧ ✝</div>
+</div>
+
+<div class="section-wrap">
+  <h2 class="section-title">Meu Resumo para a Confissão</h2>
+  <p class="section-lead">Isto é apenas um lembrete pessoal — não é preciso ler tudo ao padre, mas pode ajudar a não esquecer nada.</p>
+  <div id="resumo">
+    <div id="resumo-empty">Ainda não marcaste nenhum item. Percorre o exame acima com calma.</div>
+    <div id="resumo-content" style="display:none;"></div>
+    <div class="resumo-actions">
+      <button class="btn small" onclick="window.print()">Imprimir resumo</button>
+      <button class="btn small secondary" onclick="copiarResumo()">Copiar como texto</button>
+      <button class="btn small secondary" onclick="limparExame()">Recomeçar exame</button>
+    </div>
+  </div>
+</div>
+
+<div class="section-wrap">
+  <div class="divider-orn">✝ ❧ ✝</div>
+</div>
+
+<div class="section-wrap">
+  <h2 class="section-title">Como se Confessar</h2>
+  <p class="section-lead">Um roteiro simples para quem sente insegurança diante do confessionário.</p>
+  <ol class="steps">
+    <li><strong>Faz o exame de consciência</strong> — o que acabaste de rever acima.</li>
+    <li><strong>Faz o sinal da cruz</strong> e diz: "Abençoe-me, padre, porque pequei. Faz [tempo] desde a minha última confissão."</li>
+    <li><strong>Confessa os pecados</strong> com sinceridade e clareza, sem justificar nem exagerar — dizendo o tipo de pecado e, se possível, uma ideia de quantas vezes.</li>
+    <li><strong>Escuta o conselho do padre</strong> e recebe a penitência que ele te propuser.</li>
+    <li><strong>Reza o Ato de Contrição</strong> (abaixo), de coração, arrependido(a).</li>
+    <li><strong>Recebe a absolvição</strong> — é Deus, através do padre, que te perdoa.</li>
+    <li><strong>Cumpre a penitência</strong> assim que possível, com gratidão pelo perdão recebido.</li>
+  </ol>
+
+  <div class="prayer-box">
+    <span class="eyebrow" style="text-align:center; display:block;">Ato de Contrição</span>
+    <p>Meu Deus, eu me arrependo de todo o coração de todos os meus pecados, e os detesto, porque, pecando, mereci as penas do inferno e, sobretudo, porque ofendi a Vós, que sois infinitamente bom e digno de ser amado sobre todas as coisas. Proponho firmemente, com o auxílio da vossa graça, não mais pecar e evitar as ocasiões próximas de pecado. Amém.</p>
+  </div>
+</div>
+
+<footer>
+  Feito com reverência para servir à tua caminhada de fé. "Se dissermos que não temos pecado, enganamo-nos a nós mesmos" (1 Jo 1,8).
+</footer>
+
+<script>
+// ---------------- DATA ----------------
+const commandments = [
+  {
+    numeral:"I",
+    title:"Amar a Deus sobre todas as coisas",
+    note:"Não terás outros deuses diante de mim.",
+    questions:[
+      "Busquei a Deus em oração diária, mesmo que breve?",
+      "Coloquei dinheiro, trabalho, sucesso ou prazer no lugar que pertence só a Deus?",
+      "Recorri a horóscopos, tarô, cartomancia, búzios ou práticas espíritas em busca de respostas?",
+      "Tive vergonha de me identificar como católico diante dos outros?",
+      "Desanimei ou me revoltei contra Deus diante do sofrimento?",
+      "Neguei ou duvidei gravemente de alguma verdade da fé por comodismo?",
+      "Deixei de estudar a fé (catecismo, Escrituras) podendo fazê-lo?",
+      "Coloquei a minha vontade acima da vontade de Deus, conscientemente?"
+    ]
+  },
+  {
+    numeral:"II",
+    title:"Não usar o nome de Deus em vão",
+    note:"Santificado seja o teu nome.",
+    questions:[
+      "Usei o nome de Deus, de Jesus, de Maria ou dos santos como xingamento ou em momentos de raiva?",
+      "Fiz promessas ou juramentos em nome de Deus sem intenção de cumpri-los?",
+      "Blasfemei contra Deus, a Virgem Maria ou os santos?",
+      "Faltei com respeito a imagens sagradas, à Bíblia ou ao Santíssimo Sacramento?"
+    ]
+  },
+  {
+    numeral:"III",
+    title:"Guardar o Domingo e os dias santos",
+    note:"Santificar o dia do Senhor.",
+    questions:[
+      "Faltei à Missa dominical ou de preceito por preguiça ou desleixo, sem motivo real?",
+      "Participei da Missa distraído(a), sem atenção nem devoção?",
+      "Trabalhei ou assumi compromissos que impediram desnecessariamente o descanso e a oração no domingo?",
+      "Deixei de reservar um tempo para Deus e para a família nesse dia?"
+    ]
+  },
+  {
+    numeral:"IV",
+    title:"Honrar pai e mãe",
+    note:"Respeito à autoridade e aos laços familiares.",
+    questions:[
+      "Fui desrespeitoso(a), ríspido(a) ou desobediente com meus pais ou responsáveis?",
+      "Negligenciei o cuidado de pais idosos ou doentes, podendo ajudar?",
+      "Faltei com respeito a superiores, chefes, professores ou autoridades legítimas?",
+      "Como cônjuge, pai ou mãe, faltei aos deveres de cuidado, educação ou bom exemplo para com a família?",
+      "Guardei rancor ou ressentimento contra algum familiar?"
+    ]
+  },
+  {
+    numeral:"V",
+    title:"Não matar",
+    note:"Respeito pela vida e pela integridade do próximo.",
+    questions:[
+      "Feri alguém, física, verbal ou moralmente, de propósito?",
+      "Alimentei ódio, desejo de vingança ou desejo de mal contra alguém?",
+      "Apoiei, aconselhei ou pratiquei o aborto ou a eutanásia?",
+      "Coloquei em risco minha própria vida ou saúde (abuso de álcool, drogas, direção perigosa, negligência com a saúde)?",
+      "Fui negligente ou agressivo(a) no trânsito, colocando outros em risco?",
+      "Guardei mágoa profunda sem buscar o caminho do perdão?"
+    ]
+  },
+  {
+    numeral:"VI",
+    title:"Pecados contra a castidade",
+    note:"A pureza do corpo e do coração.",
+    questions:[
+      "Cometi atos impuros, sozinho(a) ou com outra pessoa, fora do matrimônio?",
+      "Consumi pornografia ou conteúdo sexualmente impróprio?",
+      "Tive pensamentos ou desejos impuros e neles me demorei de boa vontade?",
+      "Fui infiel ao cônjuge, de fato ou de pensamento?",
+      "Usei métodos contrários à doutrina da Igreja para evitar filhos?",
+      "Participei com prazer de conversas ou piadas de cunho sexual desrespeitoso?",
+      "Agi ou me vesti de modo a provocar deliberadamente o pecado no outro?"
+    ]
+  },
+  {
+    numeral:"VII",
+    title:"Não furtar",
+    note:"Justiça e respeito pelos bens alheios.",
+    questions:[
+      "Tomei ou usei algo que não me pertencia, mesmo pequeno, sem permissão?",
+      "Fui desonesto(a) em negócios, no trabalho ou nos estudos (fraude, cola, sonegação)?",
+      "Deixei de pagar dívidas ou salários justos que devia?",
+      "Danifiquei bens alheios ou públicos sem reparar o dano?",
+      "Fui mesquinho(a) com quem precisava, podendo ajudar?"
+    ]
+  },
+  {
+    numeral:"VIII",
+    title:"Não mentir nem dar falso testemunho",
+    note:"Verdade e retidão nas palavras.",
+    questions:[
+      "Menti para obter vantagem ou evitar responsabilidade?",
+      "Falei mal de alguém (fofoca, calúnia, difamação), prejudicando sua reputação?",
+      "Revelei algo que me foi confiado em segredo?",
+      "Julguei o próximo precipitadamente, sem conhecer toda a verdade?",
+      "Fui hipócrita, fingindo ser o que não sou?"
+    ]
+  },
+  {
+    numeral:"IX",
+    title:"Não desejar a mulher (ou o marido) do próximo",
+    note:"Pureza dos pensamentos e dos afetos.",
+    questions:[
+      "Alimentei desejos impuros em relação a pessoa comprometida ou casada?",
+      "Cultivei apegos afetivos desordenados fora do matrimônio?",
+      "Busquei, de propósito, situações que alimentam esse tipo de desejo?"
+    ]
+  },
+  {
+    numeral:"X",
+    title:"Não cobiçar as coisas alheias",
+    note:"Desapego e contentamento.",
+    questions:[
+      "Tive inveja dos bens, do sucesso ou da vida de outras pessoas?",
+      "Vivi com apego excessivo ao dinheiro e às posses materiais?",
+      "Deixei de ser generoso(a) quando podia ajudar quem tinha menos?",
+      "Comparei minha vida à dos outros de um jeito que gerou amargura?"
+    ]
+  }
+];
+
+const capitais = [
+  {nome:"Soberba", desc:"O orgulho que me coloca acima dos outros.", perguntas:["Tenho dificuldade em pedir perdão ou admitir que errei?","Menosprezei ou humilhei alguém para me sentir superior?"]},
+  {nome:"Avareza", desc:"O apego desordenado ao dinheiro e aos bens.", perguntas:["Tenho dificuldade em compartilhar o que possuo?","Coloquei o lucro acima da justiça ou da caridade?"]},
+  {nome:"Luxúria", desc:"O desejo desordenado dos prazeres do corpo.", perguntas:["Busquei prazer sem me importar com a dignidade própria ou do outro?"]},
+  {nome:"Ira", desc:"A raiva descontrolada.", perguntas:["Perdi o controle, gritei ou fui agressivo(a), verbal ou fisicamente?","Guardei raiva por dias sem buscar reconciliação?"]},
+  {nome:"Gula", desc:"O excesso sem domínio próprio.", perguntas:["Exagerei em comida, bebida ou outros prazeres, prejudicando minha saúde ou meus deveres?"]},
+  {nome:"Inveja", desc:"A tristeza pelo bem do outro.", perguntas:["Fiquei incomodado(a) ou infeliz com o sucesso ou a felicidade de alguém?"]},
+  {nome:"Preguiça (acídia)", desc:"O comodismo diante dos deveres espirituais e da vida.", perguntas:["Neglenciei minhas responsabilidades espirituais, familiares ou profissionais por comodismo?"]}
+];
+
+const preceitos = [
+  "Participar da Missa aos domingos e dias santos de guarda.",
+  "Confessar os pecados graves ao menos uma vez ao ano.",
+  "Comungar ao menos pela Páscoa.",
+  "Observar os dias de jejum e abstinência estabelecidos pela Igreja.",
+  "Contribuir com as necessidades materiais da Igreja, conforme as próprias possibilidades."
+];
+
+// ---------------- STATE ----------------
+let allItems = [];      // {id, group, groupNumeral, text, groupType}
+let checkedSet = new Set();
+let visitedSet = new Set();
+
+// ---------------- BUILD DOM ----------------
+const commandmentsContainer = document.getElementById('commandmentsContainer');
+commandments.forEach((c, ci) => {
+  const wrap = document.createElement('div');
+  wrap.className = 'commandment';
+  wrap.id = 'cmd-' + ci;
+
+  const head = document.createElement('div');
+  head.className = 'commandment-head';
+  head.innerHTML = `
+    <div class="numeral">${c.numeral}</div>
+    <div class="commandment-title">
+      <h3>${c.title}</h3>
+      <p>${c.note}</p>
+    </div>
+    <div class="badge-count" id="badge-${ci}" style="display:none;"></div>
+    <div class="chev">❯</div>
+  `;
+  head.addEventListener('click', () => wrap.classList.toggle('open'));
+
+  const body = document.createElement('div');
+  body.className = 'commandment-body';
+  const bodyInner = document.createElement('div');
+  bodyInner.className = 'commandment-body-inner';
+  const ul = document.createElement('ul');
+  ul.className = 'q-list';
+
+  c.questions.forEach((q, qi) => {
+    const id = `mand-${ci}-${qi}`;
+    allItems.push({id, group: c.title, groupNumeral: c.numeral, text:q, groupType:'mandamento'});
+    const li = document.createElement('li');
+    li.className = 'q-item';
+    li.id = 'item-' + id;
+    li.innerHTML = `<input type="checkbox" id="${id}"><label for="${id}">${q}</label>`;
+    li.querySelector('input').addEventListener('change', (e) => toggleItem(id, e.target.checked, ci, 'mand'));
+    ul.appendChild(li);
+  });
+
+  bodyInner.appendChild(ul);
+  body.appendChild(bodyInner);
+  wrap.appendChild(head);
+  wrap.appendChild(body);
+  commandmentsContainer.appendChild(wrap);
+
+  // animate max-height properly on open/close
+  const observer = new MutationObserver(() => {
+    if(wrap.classList.contains('open')){
+      body.style.maxHeight = body.scrollHeight + 'px';
+    } else {
+      body.style.maxHeight = '0px';
+    }
+  });
+  observer.observe(wrap, {attributes:true, attributeFilter:['class']});
+});
+
+const capitaisContainer = document.getElementById('capitaisContainer');
+capitais.forEach((cap, ci) => {
+  const card = document.createElement('div');
+  card.className = 'simple-card';
+  const ul = document.createElement('ul');
+  ul.className = 'q-list';
+  card.innerHTML = `<h4>${cap.nome}</h4><p class="note">${cap.desc}</p>`;
+  cap.perguntas.forEach((p, pi) => {
+    const id = `cap-${ci}-${pi}`;
+    allItems.push({id, group: cap.nome, groupNumeral:'', text:p, groupType:'capital'});
+    const li = document.createElement('li');
+    li.className = 'q-item';
+    li.id = 'item-' + id;
+    li.innerHTML = `<input type="checkbox" id="${id}"><label for="${id}">${p}</label>`;
+    li.querySelector('input').addEventListener('change', (e) => toggleItem(id, e.target.checked));
+    ul.appendChild(li);
+  });
+  card.appendChild(ul);
+  capitaisContainer.appendChild(card);
+});
+
+const preceitosContainer = document.getElementById('preceitosContainer');
+const preceitosCard = document.createElement('div');
+preceitosCard.className = 'simple-card';
+const preceitosUl = document.createElement('ul');
+preceitosUl.className = 'q-list';
+preceitos.forEach((p, pi) => {
+  const id = `prec-${pi}`;
+  allItems.push({id, group:'Preceitos da Igreja', groupNumeral:'', text:'Deixei de: ' + p.charAt(0).toLowerCase() + p.slice(1), groupType:'preceito'});
+  const li = document.createElement('li');
+  li.className = 'q-item';
+  li.id = 'item-' + id;
+  li.innerHTML = `<input type="checkbox" id="${id}"><label for="${id}">Deixei de: ${p.charAt(0).toLowerCase() + p.slice(1)}</label>`;
+  li.querySelector('input').addEventListener('change', (e) => toggleItem(id, e.target.checked));
+  preceitosUl.appendChild(li);
+});
+preceitosCard.appendChild(preceitosUl);
+preceitosContainer.appendChild(preceitosCard);
+
+// ---------------- LOGIC ----------------
+function toggleItem(id, checked, cmdIndex){
+  visitedSet.add(id);
+  if(checked){ checkedSet.add(id); } else { checkedSet.delete(id); }
+  document.getElementById('item-' + id).classList.toggle('checked', checked);
+  updateProgress();
+  updateBadges();
+  updateResumo();
+}
+
+function updateBadges(){
+  commandments.forEach((c, ci) => {
+    const count = allItems.filter(it => it.groupType==='mandamento' && it.id.startsWith('mand-'+ci+'-') && checkedSet.has(it.id)).length;
+    const badge = document.getElementById('badge-'+ci);
+    if(count > 0){
+      badge.style.display = 'inline-block';
+      badge.textContent = count + (count === 1 ? ' item' : ' itens');
+    } else {
+      badge.style.display = 'none';
+    }
+  });
+}
+
+function updateProgress(){
+  const pct = Math.round((visitedSet.size / allItems.length) * 100);
+  document.getElementById('waxFill').style.height = pct + '%';
+  document.getElementById('trackFill').style.width = pct + '%';
+  document.getElementById('progressPct').textContent = pct + '%';
+}
+
+function updateResumo(){
+  const empty = document.getElementById('resumo-empty');
+  const content = document.getElementById('resumo-content');
+  if(checkedSet.size === 0){
+    empty.style.display = 'block';
+    content.style.display = 'none';
+    return;
+  }
+  empty.style.display = 'none';
+  content.style.display = 'block';
+
+  // group by 'group'
+  const groups = {};
+  allItems.forEach(it => {
+    if(checkedSet.has(it.id)){
+      const label = it.groupNumeral ? `${it.groupNumeral}. ${it.group}` : it.group;
+      if(!groups[label]) groups[label] = [];
+      groups[label].push(it.text);
+    }
+  });
+
+  content.innerHTML = '';
+  Object.keys(groups).forEach(label => {
+    const div = document.createElement('div');
+    div.className = 'resumo-group';
+    const items = groups[label].map(t => `<li>${t}</li>`).join('');
+    div.innerHTML = `<h4>${label}</h4><ul>${items}</ul>`;
+    content.appendChild(div);
+  });
+}
+
+function copiarResumo(){
+  if(checkedSet.size === 0){
+    alert('Ainda não marcaste nenhum item no exame.');
+    return;
+  }
+  const groups = {};
+  allItems.forEach(it => {
+    if(checkedSet.has(it.id)){
+      const label = it.groupNumeral ? `${it.groupNumeral}. ${it.group}` : it.group;
+      if(!groups[label]) groups[label] = [];
+      groups[label].push(it.text);
+    }
+  });
+  let text = "MEU RESUMO PARA A CONFISSÃO\n\n";
+  Object.keys(groups).forEach(label => {
+    text += label + "\n";
+    groups[label].forEach(t => text += "  - " + t + "\n");
+    text += "\n";
+  });
+  navigator.clipboard.writeText(text).then(() => {
+    alert('Resumo copiado! Podes colar num bloco de notas do teu telefone.');
+  }).catch(() => {
+    alert('Não foi possível copiar automaticamente. Usa o botão de imprimir.');
+  });
+}
+
+function limparExame(){
+  if(!confirm('Isto vai desmarcar todos os itens do exame. Continuar?')) return;
+  checkedSet.clear();
+  visitedSet.clear();
+  document.querySelectorAll('.q-item input[type="checkbox"]').forEach(cb => cb.checked = false);
+  document.querySelectorAll('.q-item').forEach(li => li.classList.remove('checked'));
+  updateProgress();
+  updateBadges();
+  updateResumo();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+updateProgress();
+</script>
+
+</body>
+</html>
