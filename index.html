@@ -484,11 +484,37 @@
 
   /* ---------- print ---------- */
   @media print{
-    .progress-bar, .hero-flame-wrap, .btn, .divider-orn, footer, #accordion, #capitais, #preceitos, header.hero .btn{display:none !important;}
-    body{background:#fff; color:#000;}
-    #resumo{border:1px solid #000; box-shadow:none;}
-    .resumo-group h4{color:#000;}
+    body{background:#fff; color:#000; font-size:13px;}
+
+    /* esconde tudo por padrão */
+    #hero, .progress-bar, .divider-orn, #acordeao, #capitais, #preceitos,
+    #confissaoGuide, footer{
+      display:none !important;
+    }
+
+    /* mostra só o bloco do resumo */
+    .section-wrap{padding:0; max-width:100%;}
+    .section-title, .section-lead{display:none;}
+
+    #resumo{
+      border:1px solid #000;
+      box-shadow:none;
+      background:#fff;
+      padding:0.5rem 0;
+      margin:0;
+    }
+    #resumo::before{content:"Meu Resumo para a Confissão"; display:block; font-family:'Cormorant Garamond', serif; font-size:1.6rem; font-weight:600; margin-bottom:0.6rem; color:#000;}
+    #resumo-empty{display:none !important;}
+    .resumo-group h4{color:#000; border-bottom:1px solid #000;}
     .resumo-group ul{color:#000;}
+    .resumo-group li{color:#000;}
+    .resumo-actions{display:none !important;}
+    #resumo[data-empty="true"]::after{
+      content:"Nenhum item foi marcado no exame ainda.";
+      display:block;
+      font-style:italic;
+      color:#333;
+    }
   }
 
   @media (max-width:520px){
@@ -509,7 +535,7 @@
   <div class="progress-text">Refletido: <strong id="progressPct">0%</strong></div>
 </div>
 
-<header class="hero">
+<header class="hero" id="hero">
   <div class="hero-flame-wrap">
     <div class="hero-candle">
       <div class="wick"></div>
@@ -576,7 +602,7 @@
   <div class="divider-orn">✝ ❧ ✝</div>
 </div>
 
-<div class="section-wrap">
+<div class="section-wrap" id="confissaoGuide">
   <h2 class="section-title">Como se Confessar</h2>
   <p class="section-lead">Um roteiro simples para quem sente insegurança diante do confessionário.</p>
   <ol class="steps">
@@ -873,8 +899,10 @@ function updateProgress(){
 }
 
 function updateResumo(){
+  const resumoEl = document.getElementById('resumo');
   const empty = document.getElementById('resumo-empty');
   const content = document.getElementById('resumo-content');
+  resumoEl.dataset.empty = checkedSet.size === 0 ? 'true' : 'false';
   if(checkedSet.size === 0){
     empty.style.display = 'block';
     content.style.display = 'none';
